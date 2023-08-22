@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [choice, setChoice]  = useState('');
   const [teams, setTeams] = useState([
     {name: "Team 1", weight: 0.5},
     {name: "Team 2", weight: 0.5},
@@ -24,9 +25,15 @@ function App() {
     setTeams(temp)
   }
 
+  const calculateRandomChoice = () => {
+    const allChoices = teams.map(tm => new Array(Math.round(tm.weight * 20)).fill(tm.name)).flat()
+    const randomChoice = allChoices[Math.floor(Math.random() * allChoices.length)]
+    setChoice(randomChoice);
+  }
+
   return (
 <div className='App'>
-    <div>{JSON.stringify(teams)}</div>
+    <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
 
     {teams.map((tm, i) => (
       <div key={`team-div-${i}`}>
