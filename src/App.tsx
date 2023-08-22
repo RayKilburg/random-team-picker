@@ -1,34 +1,42 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [teams, setTeams] = useState([
+    {name: "Team 1", weight: 0.5},
+    {name: "Team 2", weight: 0.5},
+    {name: "Team 3", weight: 0.5},
+    {name: "Team 4", weight: 0.5},
+    {name: "Team 5", weight: 0.5},
+    {name: "Team 6", weight: 0.5},
+    {name: "Team 7", weight: 0.5},
+    {name: "Team 8", weight: 0.5},
+    {name: "Team 9", weight: 0.5},
+    {name: "Team 10", weight: 0.5},
+    {name: "Team 11", weight: 0.5},
+    {name: "Team 12", weight: 0.5},
+  ]);
+
+  const handleAdjustWeights = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const temp = Array.from(teams);
+    const index = temp.findIndex(tm => tm.name === e.target.name);
+    temp[index].weight = e.target.valueAsNumber;
+    setTeams(temp)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+<div className='App'>
+    <div>{JSON.stringify(teams)}</div>
+
+    {teams.map((tm, i) => (
+      <div key={`team-div-${i}`}>
+        <label>{tm.name}</label>
+        <input onChange={handleAdjustWeights} name={tm.name} type="range" step={0.05} value={tm.weight} max={1} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+    ))}
+
+</div>
   )
 }
 
