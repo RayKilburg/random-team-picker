@@ -31,9 +31,16 @@ function App() {
     setChoice(randomChoice);
   }
 
+  const handleReset = () => {
+    setTeams(teams.map(tm => ({...tm, weight: 0.5})))
+  }
+
   return (
 <div className='App'>
-    <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
+    <div>
+      <button onClick={handleReset}>Reset Odds</button>
+      <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
+      </div>
 
     {teams.map((tm, i) => (
       <div key={`team-div-${i}`}>
