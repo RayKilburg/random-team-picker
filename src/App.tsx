@@ -3,6 +3,7 @@ import './App.css'
 
 function App() {
   const [choice, setChoice]  = useState('');
+  const [newName, setNewName] = useState('');
   const [teams, setTeams] = useState([
     {name: "Team 1", weight: 0.5},
     {name: "Team 2", weight: 0.5},
@@ -17,6 +18,16 @@ function App() {
     {name: "Team 11", weight: 0.5},
     {name: "Team 12", weight: 0.5},
   ]);
+
+  const handleAddTeam = () => {
+    if(!newName) return;
+    setTeams([...teams, {name: newName, weight: 0.5}])
+    setNewName("");
+  }
+
+  const handleRemoveTeam = (name: string) => {
+    setTeams(teams.filter(tm => tm.name !== name))
+  }
 
   const handleAdjustWeights = (e: React.ChangeEvent<HTMLInputElement>) => {
     const temp = Array.from(teams);
@@ -42,10 +53,16 @@ function App() {
       <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
       </div>
 
+      <div>
+        <input value={newName} onChange={e => setNewName(e.target.value)} type="text" />
+        <button onClick={handleAddTeam}>Add</button>
+      </div>
+
     {teams.map((tm, i) => (
       <div key={`team-div-${i}`}>
         <label>{tm.name}</label>
         <input onChange={handleAdjustWeights} name={tm.name} type="range" step={0.05} value={tm.weight} max={1} />
+        <span onClick={() => handleRemoveTeam(tm.name)}>🗑️</span>
       </div>
 
     ))}
