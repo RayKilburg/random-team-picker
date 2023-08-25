@@ -69,6 +69,12 @@ function App() {
     setTeams(teams.map(tm => ({...tm, weight: 0.5})))
   }
 
+  const handleSubmitOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === "Enter" ) {
+      handleAddTeam();
+    }
+  }
+
   return (
 <div className='App'>
     <div>
@@ -77,7 +83,7 @@ function App() {
       </div>
 
       <div>
-        <input value={newName} onChange={e => setNewName(e.target.value)} type="text" />
+        <input onKeyDown={e => handleSubmitOnEnter(e)} value={newName} onChange={e => setNewName(e.target.value)} type="text" />
         <button onClick={handleAddTeam}>Add</button>
       </div>
 
