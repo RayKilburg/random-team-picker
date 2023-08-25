@@ -1,23 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
+
+const STORAGE_KEY = 'team'
+
+interface Team {
+  name: string;
+  weight: number
+}
 
 function App() {
   const [choice, setChoice]  = useState('');
   const [newName, setNewName] = useState('');
-  const [teams, setTeams] = useState([
-    {name: "Team 1", weight: 0.5},
-    {name: "Team 2", weight: 0.5},
-    {name: "Team 3", weight: 0.5},
-    {name: "Team 4", weight: 0.5},
-    {name: "Team 5", weight: 0.5},
-    {name: "Team 6", weight: 0.5},
-    {name: "Team 7", weight: 0.5},
-    {name: "Team 8", weight: 0.5},
-    {name: "Team 9", weight: 0.5},
-    {name: "Team 10", weight: 0.5},
-    {name: "Team 11", weight: 0.5},
-    {name: "Team 12", weight: 0.5},
-  ]);
+  const [teams, setTeams] = useState<Team[]>([]);
+
+  useEffect(() => {
+    const store = localStorage.getItem(STORAGE_KEY)
+
+    if(store) {
+      setTeams(JSON.parse(store))
+    } else {
+      setTeams([
+        {name: "Team 1", weight: 0.5},
+        {name: "Team 2", weight: 0.5},
+        {name: "Team 3", weight: 0.5},
+        {name: "Team 4", weight: 0.5},
+        {name: "Team 5", weight: 0.5},
+        {name: "Team 6", weight: 0.5},
+        {name: "Team 7", weight: 0.5},
+        {name: "Team 8", weight: 0.5},
+        {name: "Team 9", weight: 0.5},
+        {name: "Team 10", weight: 0.5},
+        {name: "Team 11", weight: 0.5},
+        {name: "Team 12", weight: 0.5},
+      ])
+    }
+  }, [])
+
+  useEffect(() => {
+    if(!teams.length) return;
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(teams))
+  }, [teams])
 
   const handleAddTeam = () => {
     if(!newName) return;
