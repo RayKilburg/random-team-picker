@@ -8,6 +8,14 @@
   text-align: center;
 }
 
+input[type="text"] {
+  height: 40px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
