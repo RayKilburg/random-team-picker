@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const STORAGE_KEY = 'team'
 
 interface Team {
@@ -12,6 +15,8 @@ function App() {
   const [choice, setChoice]  = useState('');
   const [newName, setNewName] = useState('');
   const [teams, setTeams] = useState<Team[]>([]);
+
+  
 
   useEffect(() => {
     const store = localStorage.getItem(STORAGE_KEY)
@@ -59,10 +64,18 @@ function App() {
     setTeams(temp)
   }
 
+  
+
   const calculateRandomChoice = () => {
+    
     const allChoices = teams.map(tm => new Array(Math.round(tm.weight * 20)).fill(tm.name)).flat()
     const randomChoice = allChoices[Math.floor(Math.random() * allChoices.length)]
+    notify();
     setChoice(randomChoice);
+  }
+
+  const notify = () => {
+    toast(`${choice}`);
   }
 
   const handleReset = () => {
@@ -80,7 +93,9 @@ function App() {
     <div>
       <button onClick={handleReset}>Reset Odds</button>
       <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
-      </div>
+      <ToastContainer />
+    </div>
+      
 
       <div>
         <input onKeyDown={e => handleSubmitOnEnter(e)} value={newName} onChange={e => setNewName(e.target.value)} type="text" />
