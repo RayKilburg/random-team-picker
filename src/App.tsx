@@ -94,7 +94,7 @@ function App() {
 
   return (
 <div className='App'>
-    <div>
+    <div className='topRow'>
       <button onClick={handleReset}>Reset Odds</button>
       <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
       <ToastContainer />
@@ -110,7 +110,7 @@ function App() {
       <div key={`team-div-${i}`}>
         <label>{tm.name}</label>
         <input onChange={handleAdjustWeights} name={tm.name} type="range" step={0.05} value={tm.weight} max={1} />
-        <span onClick={() => handleRemoveTeam(tm.name)}>🗑️</span>
+        <span className='trash' onClick={() => handleRemoveTeam(tm.name)}>🗑️</span>
       </div>
 
     ))}

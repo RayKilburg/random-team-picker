@@ -51,3 +51,11 @@ input[type="text"] {
 .read-the-docs {
   color: #888;
 }
+
+.topRow {
+  margin: 20px;
+}
+
+.trash {
+  cursor: pointer;
+}
