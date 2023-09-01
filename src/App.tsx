@@ -67,16 +67,20 @@ function App() {
   
 
   const calculateRandomChoice = () => {
-    
-    const allChoices = teams.map(tm => new Array(Math.round(tm.weight * 20)).fill(tm.name)).flat()
-    const randomChoice = allChoices[Math.floor(Math.random() * allChoices.length)]
-    notify();
-    setChoice(randomChoice);
-  }
+    const allChoices = teams.map(tm => new Array(Math.round(tm.weight * 20)).fill(tm.name)).flat();
+    const randomChoice = allChoices[Math.floor(Math.random() * allChoices.length)];
+    setChoice(randomChoice); // Pass the notify function as a callback
+  };
 
   const notify = () => {
     toast(`${choice}`);
-  }
+  };
+
+  useEffect(() => {
+    if (choice !== '') {
+      notify(); // Call notify when the choice state changes
+    }
+  }, [choice]);
 
   const handleReset = () => {
     setTeams(teams.map(tm => ({...tm, weight: 0.5})))
