@@ -48,7 +48,10 @@ function App() {
   }, [teams])
 
   const handleAddTeam = () => {
-    if(!newName) return;
+    if(!newName) {
+      toast(`Please add a team`);
+      return
+    }
     setTeams([...teams, {name: newName, weight: 0.5}])
     setNewName("");
   }
