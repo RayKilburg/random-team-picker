@@ -103,7 +103,7 @@ function App() {
 
       <div className='addSection'>
         <input onKeyDown={e => handleSubmitOnEnter(e)} value={newName} onChange={e => setNewName(e.target.value)} type="text" />
-        <button onClick={handleAddTeam}>Add</button>
+        <button className='btn-3' onClick={handleAddTeam}>Add</button>
       </div>
 
     {teams.map((tm, i) => (
