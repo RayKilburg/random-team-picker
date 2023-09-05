@@ -4,7 +4,7 @@
 
 ## Todo
 - Edit UI / make style changes
-- Add toastify
+- Style toastify
 
 ## Info:
 - This app was built with Vite + React + TypeScript
