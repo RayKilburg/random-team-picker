@@ -140,5 +140,5 @@ button:hover {
 }
 
 button {
-  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  background-image: linear-gradient(to right, rgb(84, 6, 62) 0%, rgb(18, 48, 96) 51%, rgb(84, 6, 62) 100%);
 }
