@@ -88,7 +88,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: red;
+  background-image: linear-gradient(to right, rgb(84, 6, 62) 0%, rgb(18, 48, 96) 51%, rgb(84, 6, 62) 100%);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -137,8 +137,4 @@ h1 {
 
 button:hover {
   background-position: right center; /* change the direction of the change here */
-}
-
-button {
-  background-image: linear-gradient(to right, rgb(84, 6, 62) 0%, rgb(18, 48, 96) 51%, rgb(84, 6, 62) 100%);
 }
