@@ -1,4 +1,6 @@
-# Random Team Picker
+# Random Team Picker 
+<br>
+<img src="public/helm.png" alt="drawing" width="200" height="200"/>
 
 ### https://random-team-picker.vercel.app/
 
