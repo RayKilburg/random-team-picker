@@ -13,3 +13,7 @@
 - This app was built with Vite + React + TypeScript
 ### React + TypeScript + Vite
 
+## Usage
+- npm install
+- npm run dev 
+
