@@ -2,7 +2,7 @@
 
 ### https://random-team-picker.vercel.app/
 
-## Todo
+## Todo:
 - Add Emoji next to team names
 - Style toastify
 - Add function to make weight of selected team = 0 after being selected
@@ -12,7 +12,7 @@
 - This app was built with Vite + React + TypeScript
 - This app is currently hosted on Vercel
 
-## Usage
+## Usage:
 - npm install
 - npm run dev 
 
