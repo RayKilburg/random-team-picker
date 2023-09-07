@@ -16,5 +16,4 @@
 - npm install
 - npm run dev 
 
-<br>
 <img src="public/helm.png" alt="drawing" width="200" height="200"/>
