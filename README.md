@@ -3,7 +3,7 @@
 ### https://random-team-picker.vercel.app/
 
 ## Todo
-- Edit UI / make style changes
+- Add Emoji next to team names
 - Style toastify
 - Add function to make weight of selected team = 0 after being selected
 
