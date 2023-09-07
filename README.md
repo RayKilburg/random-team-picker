@@ -10,8 +10,9 @@
 - Add function to make weight of selected team = 0 after being selected
 
 ## Info:
-- This app was built with Vite + React + TypeScript
 ### React + TypeScript + Vite
+- This app was built with Vite + React + TypeScript
+- This app is currently hosted on Vercel
 
 ## Usage
 - npm install
