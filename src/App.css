@@ -138,3 +138,11 @@ h1 {
 button:hover {
   background-position: right center; /* change the direction of the change here */
 }
+
+.resetBtn {
+  margin-right: 8px;
+}
+
+.addBtn {
+  margin-left: 4px;
+}

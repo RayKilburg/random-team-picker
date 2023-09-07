@@ -98,7 +98,7 @@ function App() {
   return (
 <div className='App'>
     <div className='topRow'>
-      <button onClick={handleReset}>Reset Odds</button>
+      <button className='resetBtn' onClick={handleReset}>Reset Odds</button>
       <button onClick={calculateRandomChoice}>{!choice ? "Get a random choice!" : <span><strong>{choice}. Choose again?</strong></span>}</button>
       <ToastContainer />
     </div>
@@ -106,7 +106,7 @@ function App() {
 
       <div className='addSection'>
         <input onKeyDown={e => handleSubmitOnEnter(e)} value={newName} onChange={e => setNewName(e.target.value)} type="text" />
-        <button className='btn-3' onClick={handleAddTeam}>Add</button>
+        <button className='addBtn' onClick={handleAddTeam}>Add</button>
       </div>
 
     {teams.map((tm, i) => (
