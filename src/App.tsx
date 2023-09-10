@@ -85,7 +85,7 @@ function App() {
   };
 
   const notify = () => {
-    toast(`${choice} Has Is Selected` , {
+    toast(`${choice} Has Been Selected` , {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
