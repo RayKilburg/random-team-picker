@@ -49,7 +49,16 @@ function App() {
 
   const handleAddTeam = () => {
     if(!newName) {
-      toast(`Please add a team`);
+      toast(`Please add a team`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       return
     }
     setTeams([...teams, {name: newName, weight: 0.5}])
@@ -76,7 +85,16 @@ function App() {
   };
 
   const notify = () => {
-    toast(`${choice}`);
+    toast(`${choice} Has Is Selected` , {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   useEffect(() => {
