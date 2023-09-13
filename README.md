@@ -11,6 +11,7 @@
 - This app was built with Vite + React + TypeScript
 - This app is currently hosted on Vercel
 - This app uses local storage to store data 
+- React Toastify used for notifications
 
 ## Usage:
 - npm install
