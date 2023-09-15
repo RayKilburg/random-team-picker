@@ -10,7 +10,7 @@
 ### React + TypeScript + Vite
 - This app was built with Vite + React + TypeScript
 - This app is currently hosted on Vercel
-- This app uses local storage to store data 
+- I am using local storage to store "team" data 
 - React Toastify used for notifications
 
 ## Usage:
